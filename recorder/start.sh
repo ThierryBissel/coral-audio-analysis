@@ -13,7 +13,7 @@ if [[ ! -s "$DB_PATH" ]] ; then
   parent_path=$(dirname "$DB_PATH")
   mkdir -p "$parent_path"
   chmod 755 "$parent_path"
-  cp -n /usr/src/app/sound_app.db "$DB_PATH"
+  cp -n ./sound_app.db "$DB_PATH"
 fi
 
 # Give audio time to start up before continuing
@@ -23,14 +23,14 @@ sleep 8
 amixer -c 0 set Speaker 50% y
 
 # run the fan based on FAN_SPEED variable
-if [[ -z $FAN_SPEED ]]; then
-  echo "FAN_SPEED value not set. Using defaults."
-  echo "enabled" > /sys/devices/virtual/thermal/thermal_zone0/mode
-else
-  echo "disabled" > /sys/devices/virtual/thermal/thermal_zone0/mode
-  echo $FAN_SPEED > /sys/devices/platform/gpio_fan/hwmon/hwmon0/fan1_target
-  echo "FAN_SPEED set to "$FAN_SPEED
-fi
+#if [[ -z $FAN_SPEED ]]; then
+#  echo "FAN_SPEED value not set. Using defaults."
+#  echo "enabled" > /sys/devices/virtual/thermal/thermal_zone0/mode
+#else
+#  echo "disabled" > /sys/devices/virtual/thermal/thermal_zone0/mode
+#  echo $FAN_SPEED > /sys/devices/platform/gpio_fan/hwmon/hwmon0/fan1_target
+#  echo "FAN_SPEED set to "$FAN_SPEED
+#fi
 
 # display audio info
 python3 audio_info.py
