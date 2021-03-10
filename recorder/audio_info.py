@@ -21,6 +21,6 @@ info = audio.get_default_input_device_info()
 outp = outp + json.dumps(info, indent=4, separators=(". ", " = ")) + "\n"
 
 print(outp)
-file1 = open("/data/sound_app/audio_info.txt", "w")
+file1 = open("~/data/sound_app/audio_info.txt", "w")
 file1.writelines(outp)
 file1.close()
