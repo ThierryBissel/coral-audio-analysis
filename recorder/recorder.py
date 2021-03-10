@@ -11,7 +11,7 @@ import sqlite3
 
 # based on https://github.com/jeysonmc/python-google-speech-scripts/blob/master/stt_google.py
 
-DB_PATH = os.getenv("DB_PATH", "/data/sound_app/sound_app.db")  # path and filename of database
+DB_PATH = os.getenv("DB_PATH", "~/data/sound_app/sound_app.db")  # path and filename of database
 
 # FYI: Database schema below, only one table
 # CREATE TABLE wav_file(my_rowid INTEGER PRIMARY KEY, timestamp_created TEXT, timestamp_evaluated TEXT, timestamp_deleted TEXT, interpreter_class TEXT, interpreter_certainty INT,
@@ -20,7 +20,7 @@ DB_PATH = os.getenv("DB_PATH", "/data/sound_app/sound_app.db")  # path and filen
 #   user_class TEXT, timestamp_ready TEXT, remote_filename TEXT, upload_msg TEXT, certainty_threshold INT, t3 TEXT, t4 TEXT, n1 INT, n2 INT,
 #   interpreter_class_id INT, interpreter_class2_id INT, user_class_id INT);
 
-WAV_FILE_PATH = os.getenv("WAV_PATH", "/data/sound_app/") # path to location for saving wav files
+WAV_FILE_PATH = os.getenv("WAV_PATH", "~/data/sound_app/") # path to location for saving wav files
 
 wf = os.getenv("WAV_FILE_LIMIT", "6000000000") # Total size limit in bytes of stored wav files before warning
 if wf.isnumeric():
